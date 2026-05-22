@@ -8,59 +8,79 @@
   <style>
     body {
       margin: 0;
-      height: 100vh;
-      background: linear-gradient(to right, #001f3f, #00cc66);
-      font-family: Arial;
+      background-color: #0a0f2c;
+      font-family: Arial, sans-serif;
       color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      text-align: center;
     }
 
-    /* TÍTULO MAIS NO TOPO */
     h1 {
       margin-top: 40px;
-      font-size: 42px;
-      text-shadow: 0 0 15px rgba(0,0,0,0.8);
+      font-size: 38px;
+      color: #f5c542;
+      text-shadow: 0 0 10px rgba(0,0,0,0.8);
+    }
+
+    .sub {
+      color: #ccc;
+      margin: 10px 20px;
+    }
+
+    .alerta {
+      color: red;
+      margin: 10px;
     }
 
     .menu {
-      margin-top: 60px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      margin-top: 30px;
+      padding: 20px;
     }
 
-    /* BOTÕES PROFISSIONAIS */
     button {
-      width: 85%;
-      max-width: 320px;
-      padding: 20px;
-      margin: 15px;
-      font-size: 22px;
-      border: none;
-      border-radius: 18px;
-      background: linear-gradient(145deg, #003366, #00cc66);
+      width: 90%;
+      max-width: 350px;
+      padding: 18px;
+      margin: 12px auto;
+      font-size: 20px;
+      border-radius: 15px;
+      display: block;
+      border: 2px solid #f5c542;
+      background-color: transparent;
       color: white;
       cursor: pointer;
-      transition: 0.3s;
-
-      /* SOMBRA */
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      transition: 0.25s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
 
-    /* HOVER (mouse) */
+    /* BOTÃO PRINCIPAL */
+    .principal {
+      background-color: #f5c542;
+      color: black;
+      font-weight: bold;
+    }
+
+    /* HOVER */
     button:hover {
-      transform: scale(1.08);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
-      background: linear-gradient(145deg, #00ff99, #006633);
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.8);
     }
 
-    /* CLIQUE / TOQUE */
+    /* CLIQUE */
     button:active {
       transform: scale(0.95);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    }
+
+    .info {
+      font-size: 14px;
+      color: #aaa;
+      margin-top: -8px;
+      margin-bottom: 10px;
+    }
+
+    .rodape {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #aaa;
     }
   </style>
 </head>
@@ -69,11 +89,33 @@
 
   <h1>Matemática RPG 🎮</h1>
 
+  <p class="sub">Resolva equações. Derrote monstros. Torne-se uma lenda.</p>
+  <p class="sub">Crie ou acesse seu personagem para jogar.</p>
+  <p class="alerta">Crie ou acesse seu personagem primeiro.</p>
+
   <div class="menu">
-    <button onclick="alert('Iniciando aventura!')">Começar Aventura</button>
-    <button onclick="alert('Criar personagem!')">Criar Personagem</button>
-    <button onclick="alert('Ver personagem!')">Ver Personagem</button>
-    <button onclick="alert('Abrindo ranks!')">Ranks</button>
+
+    <button class="principal" onclick="alert('Iniciando aventura!')">
+      ⚔️ Começar Aventura
+    </button>
+    <div class="info">⚡ Custa 10 de energia para começar</div>
+
+    <button onclick="alert('Criar personagem!')">
+      🧙 Criar Personagem
+    </button>
+
+    <button onclick="alert('Ver personagem!')">
+      👤 Ver Personagem
+    </button>
+
+    <button onclick="alert('Ranks!')">
+      🏆 Classificações
+    </button>
+
+  </div>
+
+  <div class="rodape">
+    💾 Salvar &nbsp;&nbsp; 🗑️ Limpar economia
   </div>
 
 </body>
