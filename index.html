@@ -1,11 +1,72 @@
-<h1>Matemática RPG 🎮</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Matemática RPG</title>
 
-<button onclick="clicou()">Começar</button>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<p id="txt"></p>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to right, #001f3f, #00cc66);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial;
+      color: white;
+    }
 
-<script>
-function clicou() {
-  document.getElementById("txt").innerText = "Funcionou 😎";
-}
-</script>
+    .menu {
+      text-align: center;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    button {
+      width: 80%;
+      max-width: 300px;
+      padding: 18px;
+      margin: 12px auto;
+      font-size: 20px;
+      border: none;
+      border-radius: 15px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      display: block;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    /* Efeito ao passar o mouse */
+    button:hover {
+      background-color: #00ff99;
+      color: black;
+      transform: scale(1.1);
+    }
+
+    /* Efeito ao clicar ou tocar */
+    button:active {
+      transform: scale(0.95);
+      background-color: #00cc66;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="menu">
+    <h1>Matemática RPG 🎮</h1>
+
+    <button onclick="alert('Iniciando aventura!')">Começar Aventura</button>
+    <button onclick="alert('Criar personagem!')">Criar Personagem</button>
+    <button onclick="alert('Ver personagem!')">Ver Personagem</button>
+    <button onclick="alert('Abrindo ranks!')">Ranks</button>
+  </div>
+
+</body>
+</html>
