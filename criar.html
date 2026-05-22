@@ -103,6 +103,7 @@
     }
 
     input[type="text"],
+    input[type="password"],
     input[type="file"],
     textarea,
     select {
@@ -117,6 +118,7 @@
     }
 
     input[type="text"]:focus,
+    input[type="password"]:focus,
     input[type="file"]:focus,
     textarea:focus,
     select:focus {
@@ -422,6 +424,24 @@
       color: #66ff99;
     }
 
+    .password-strength {
+      margin-top: 5px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .password-strength.fraca {
+      color: #ff6b6b;
+    }
+
+    .password-strength.media {
+      color: #ffa500;
+    }
+
+    .password-strength.forte {
+      color: #00cc66;
+    }
+
     @media (max-width: 768px) {
       .form-row {
         grid-template-columns: 1fr;
@@ -464,6 +484,14 @@
           <input type="text" id="nome" placeholder="Digite um nome épico..." maxlength="20">
         </div>
 
+        <div class="form-group">
+          <label for="senha">🔐 Senha do Personagem</label>
+          <input type="password" id="senha" placeholder="Digite uma senha forte..." maxlength="30">
+          <div class="password-strength" id="forcaSenha"></div>
+        </div>
+      </div>
+
+      <div class="form-row">
         <div class="form-group">
           <label for="profissao">Escolha sua Classe</label>
           <select id="profissao">
@@ -666,6 +694,49 @@
       `;
     }
 
+    function verificarForcaSenha(senha) {
+      const forcaSenha = document.getElementById('forcaSenha');
+      
+      if (senha.length === 0) {
+        forcaSenha.textContent = '';
+        return;
+      }
+
+      let forca = 0;
+      
+      // Verifica comprimento
+      if (senha.length >= 8) forca++;
+      if (senha.length >= 12) forca++;
+      
+      // Verifica tipos de caracteres
+      if (/[a-z]/.test(senha)) forca++;
+      if (/[A-Z]/.test(senha)) forca++;
+      if (/[0-9]/.test(senha)) forca++;
+      if (/[!@#$%^&*]/.test(senha)) forca++;
+
+      let texto = '';
+      let classe = '';
+
+      if (forca <= 2) {
+        texto = '🔴 Senha Fraca';
+        classe = 'fraca';
+      } else if (forca <= 4) {
+        texto = '🟡 Senha Média';
+        classe = 'media';
+      } else {
+        texto = '🟢 Senha Forte';
+        classe = 'forte';
+      }
+
+      forcaSenha.textContent = texto;
+      forcaSenha.className = `password-strength ${classe}`;
+    }
+
+    // Adiciona listener ao campo de senha
+    document.getElementById('senha').addEventListener('input', function() {
+      verificarForcaSenha(this.value);
+    });
+
     function mostrarMensagem(texto, tipo) {
       const el = document.getElementById('mensagem');
       el.textContent = texto;
@@ -679,6 +750,7 @@
 
     function criar() {
       let nome = document.getElementById('nome').value.trim();
+      let senha = document.getElementById('senha').value.trim();
       let desc = document.getElementById('desc').value.trim();
       let foto = document.getElementById('preview').innerHTML.includes('img') ? 
         document.getElementById('preview').querySelector('img').src : '';
@@ -691,6 +763,16 @@
 
       if (nome.length < 3) {
         mostrarMensagem('Nome muito curto! Mínimo 3 caracteres', 'erro');
+        return;
+      }
+
+      if (senha === "") {
+        mostrarMensagem('Digite uma senha para seu personagem!', 'erro');
+        return;
+      }
+
+      if (senha.length < 6) {
+        mostrarMensagem('Senha muito curta! Mínimo 6 caracteres', 'erro');
         return;
       }
 
@@ -717,6 +799,7 @@
       setTimeout(() => {
         // Salva no localStorage
         localStorage.setItem("personagem_nome", nome);
+        localStorage.setItem("personagem_senha", senha);
         localStorage.setItem("personagem_desc", desc);
         localStorage.setItem("personagem_foto", foto);
         localStorage.setItem("personagem_itens", JSON.stringify(itensSelecionados));
