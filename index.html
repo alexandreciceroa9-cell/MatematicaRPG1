@@ -29,6 +29,7 @@
     .alerta {
       color: red;
       margin: 10px;
+      font-weight: bold;
     }
 
     .menu {
@@ -52,20 +53,17 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
 
-    /* BOTÃO PRINCIPAL */
     .principal {
       background-color: #f5c542;
       color: black;
       font-weight: bold;
     }
 
-    /* HOVER */
     button:hover {
       transform: scale(1.05);
       box-shadow: 0 8px 20px rgba(0,0,0,0.8);
     }
 
-    /* CLIQUE */
     button:active {
       transform: scale(0.95);
     }
@@ -91,24 +89,26 @@
 
   <p class="sub">Resolva equações. Derrote monstros. Torne-se uma lenda.</p>
   <p class="sub">Crie ou acesse seu personagem para jogar.</p>
-  <p class="alerta">Crie ou acesse seu personagem primeiro.</p>
+
+  <p id="erro" class="alerta">Crie ou acesse seu personagem primeiro.</p>
 
   <div class="menu">
 
-    <button class="principal" onclick="alert('Iniciando aventura!')">
+    <button class="principal" onclick="comecar()">
       ⚔️ Começar Aventura
     </button>
     <div class="info">⚡ Custa 10 de energia para começar</div>
 
-    <button onclick="alert('Criar personagem!')">
+    <!-- BOTÃO CORRIGIDO -->
+    <button onclick="window.location.href='criar.html'">
       🧙 Criar Personagem
     </button>
 
-    <button onclick="alert('Ver personagem!')">
+    <button onclick="window.location.href='personagem.html'">
       👤 Ver Personagem
     </button>
 
-    <button onclick="alert('Ranks!')">
+    <button onclick="window.location.href='ranks.html'">
       🏆 Classificações
     </button>
 
@@ -117,6 +117,18 @@
   <div class="rodape">
     💾 Salvar &nbsp;&nbsp; 🗑️ Limpar economia
   </div>
+
+  <script>
+    function comecar() {
+      let nome = localStorage.getItem("personagem_nome");
+
+      if (!nome) {
+        document.getElementById("erro").innerText = "Crie ou acesse seu personagem primeiro!";
+      } else {
+        window.location.href = "aventura.html";
+      }
+    }
+  </script>
 
 </body>
 </html>
