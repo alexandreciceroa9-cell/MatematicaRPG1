@@ -29,7 +29,128 @@
       padding: 15px;
       font-size: 18px;
       border-radius: 10px;
-      border: none;
+      <!DOCTYPE html>
+<html>
+<head>
+  <title>Matemática RPG</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #0a0f2c;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 38px;
+      color: #f5c542;
+      text-shadow: 0 0 10px rgba(0,0,0,0.8);
+    }
+
+    .sub {
+      color: #ccc;
+      margin: 10px 20px;
+    }
+
+    .alerta {
+      color: red;
+      margin: 10px;
+    }
+
+    .menu {
+      margin-top: 30px;
+      padding: 20px;
+    }
+
+    button {
+      width: 90%;
+      max-width: 350px;
+      padding: 18px;
+      margin: 12px auto;
+      font-size: 20px;
+      border-radius: 15px;
+      display: block;
+      border: 2px solid #f5c542;
+      background-color: transparent;
+      color: white;
+      cursor: pointer;
+      transition: 0.25s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+
+    /* BOTÃO PRINCIPAL */
+    .principal {
+      background-color: #f5c542;
+      color: black;
+      font-weight: bold;
+    }
+
+    /* HOVER */
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+    }
+
+    /* CLIQUE */
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .info {
+      font-size: 14px;
+      color: #aaa;
+      margin-top: -8px;
+      margin-bottom: 10px;
+    }
+
+    .rodape {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Matemática RPG 🎮</h1>
+
+  <p class="sub">Resolva equações. Derrote monstros. Torne-se uma lenda.</p>
+  <p class="sub">Crie ou acesse seu personagem para jogar.</p>
+  <p class="alerta">Crie ou acesse seu personagem primeiro.</p>
+
+  <div class="menu">
+
+    <button class="principal" onclick="alert('Iniciando aventura!')">
+      ⚔️ Começar Aventura
+    </button>
+    <div class="info">⚡ Custa 10 de energia para começar</div>
+
+    <button onclick="alert('Criar personagem!')">
+      🧙 Criar Personagem
+    </button>
+
+    <button onclick="alert('Ver personagem!')">
+      👤 Ver Personagem
+    </button>
+
+    <button onclick="alert('Ranks!')">
+      🏆 Classificações
+    </button>
+
+  </div>
+
+  <div class="rodape">
+    💾 Salvar &nbsp;&nbsp; 🗑️ Limpar economia
+  </div>
+
+</body>
+</html> none;
       outline: none;
       margin-bottom: 20px;
     }
